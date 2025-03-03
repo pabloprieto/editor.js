@@ -322,7 +322,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
      * On Desktop — without inputs or with the first input far from the top of the block
      *            Toolbar should be moved to the top of the block
      */
-    } else if (firstInput === undefined || isFirstInputFarFromTop) {
+    } else if (firstInput === undefined || firstInput.offsetParent === null || isFirstInputFarFromTop) {
       const pluginContentOffset = parseInt(window.getComputedStyle(block.pluginsContent).paddingTop);
 
       const paddingTopBasedY = targetBlockHolder.offsetTop + pluginContentOffset;
